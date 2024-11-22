@@ -43,5 +43,5 @@ jobs:
 
       - name: Upload files to Google Cloud Storage
         run: |
-          gsutil -m rsync -r dist gs://portfolio_bucket_mp
+          gsutil -m rsync -r .svelte-kit gs://portfolio_bucket_mp
 

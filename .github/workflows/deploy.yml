@@ -24,13 +24,16 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Install Google Cloud SDK
+        run: |
+          sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+
       - name: Authenticate with Google Cloud
         uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.GCLOUD_AUTH }}
 
-      - name: Deploy to Google Cloud Storage
-        uses: google-github-actions/deploy-cloud-storage@v1
-        with:
-          bucket: portfolio_bucket_mp
-          source: dist
+      - name: Upload files to Google Cloud Storage
+        run: |
+          gsutil -m rsync -r dist gs://portfolio_bucket_mp
+

@@ -44,5 +44,6 @@ jobs:
       - name: Upload files to Google Cloud Storage
         run: |
           echo "gcloud auth: ${{secrets.GCLOUD_AUTH}}"
+          gsutil config
           gsutil -m rsync -r .svelte-kit gs://portfolio_bucket_mp
 

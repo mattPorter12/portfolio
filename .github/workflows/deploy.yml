@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_SECRET: ${{secrets.GCLOUD_AUTH}}
 
     steps:
       - name: Checkout code
@@ -43,6 +45,6 @@ jobs:
 
       - name: Upload files to Google Cloud Storage
         run: |
-          echo ${{secrets.GCLOUD_AUTH}}
+          echo "${{GOOGLE_SECRET}}" | awk '$1=$1' FS= OFS=" "
           gsutil -m rsync -r .svelte-kit gs://portfolio_bucket_mp
 

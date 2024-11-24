@@ -1,4 +1,4 @@
-name: Deploy to Google Cloud
+name: Deploy to Google Cloud Storage
 
 on:
   push:
@@ -10,39 +10,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # Checkout the code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      # Install dependencies and build project
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build the project
+      - name: Build Project
         run: npm run build
 
-      - name: Install Google Cloud SDK
-        run: |
-          # Add the Google Cloud SDK distribution URI as a package source
-          echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-      
-          # Add the GPG key for the Google Cloud SDK
-          curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-      
-          # Update the package list and install the SDK
-          sudo apt-get update
-          sudo apt-get install -y google-cloud-sdk
-
+      # Authenticate with Google Cloud
       - name: Authenticate with Google Cloud
-        uses: google-github-actions/auth@v1
-        with:
-          credentials_json: ${{ secrets.GCLOUD_AUTH }}
-
-      - name: Upload files to Google Cloud Storage
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcloud-key.json
         run: |
-          gcloud config set pass_credentials_to_gsutil true
-          gsutil -m rsync -r .svelte-kit gs://portfolio_bucket_mp
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" > $HOME/gcloud-key.json
+          gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
 
+      # Debugging: Verify authentication
+      - name: Verify Authentication
+        run: gcloud auth list
+
+      # Debugging: List buckets
+      - name: List Google Cloud Storage Buckets
+        run: gcloud storage buckets list
+
+      # Debugging: Check bucket permissions
+      - name: Check Bucket Access
+        run: gsutil ls gs://[BUCKET_NAME]/
+
+      # Upload files to Google Cloud Storage
+      - name: Upload Files to Google Cloud Storage
+        run: |
+          gsutil -m rsync -r .svelte-kit/output/ gs://[BUCKET_NAME]/

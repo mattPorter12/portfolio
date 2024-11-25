@@ -29,13 +29,15 @@ jobs:
         #run: npm run build
 
       # Authenticate with Google Cloud
-      - name: Authenticate with Google Cloud
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcloud-key.json
-        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\
-          /g' > $HOME/gcloud-key.json
+      - name: Decode Google Cloud credentials
+        run: |
+          echo "${{ secrets.GCLOUD_AUTH}}" | base64 --decode > $HOME/gcloud-key.json
+          cat $HOME/gcloud-key.json
           gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
+    
+    
 
+      
       # Debugging: Verify authentication
       - name: Verify Authentication
         run: gcloud auth list

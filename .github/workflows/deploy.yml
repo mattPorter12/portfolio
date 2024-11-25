@@ -29,22 +29,22 @@ jobs:
         #run: npm run build
 
       # Authenticate with Google Cloud
-      - name: Decode Google Cloud credentials
+      - name: Google Cloud authenticate and setup
         run: |
           echo "${{ secrets.GCLOUD_AUTH}}" | base64 --decode > $HOME/gcloud-key.json
-          cat $HOME/gcloud-key.json
           gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
-    
+          gcloud config set project Portfolio
     
 
       
       # Debugging: Verify authentication
       - name: Verify Authentication
+
         run: gcloud auth list
 
       # Debugging: List buckets
       - name: List Google Cloud Storage Buckets
-        run: gcloud storage buckets list
+        run: gcloud storage buckets list --project
 
       # Debugging: Check bucket permissions
       - name: Check Bucket Access

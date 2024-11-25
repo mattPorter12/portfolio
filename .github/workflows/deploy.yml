@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "${{ secrets.GCLOUD_AUTH}}" | base64 --decode > $HOME/gcloud-key.json
           gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
-          gcloud config set project Portfolio
+          gcloud config set project portfolio-442422
     
 
       

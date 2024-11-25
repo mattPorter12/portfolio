@@ -44,7 +44,7 @@ jobs:
 
       # Debugging: List buckets
       - name: List Google Cloud Storage Buckets
-        run: gcloud storage buckets list --project
+        run: gcloud storage buckets list 
 
       # Debugging: Check bucket permissions
       - name: Check Bucket Access

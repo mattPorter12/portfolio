@@ -10,44 +10,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug GOOGLE_CREDENTIALS content
+      run: |
+        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > $HOME/gcloud-key.json
+        echo "File Content Preview:"
+        head -n 5 $HOME/gcloud-key.json
+    
       # Checkout the code
-      - name: Checkout Code
-        uses: actions/checkout@v3
+     # - name: Checkout Code
+        #uses: actions/checkout@v3
 
-      # Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      ## Set up Node.js environment
+      #- name: Set up Node.js
+        #uses: actions/setup-node@v3
+        #with:
+          #node-version: 18
 
-      # Install dependencies and build project
-      - name: Install Dependencies
-        run: npm install
+      ## Install dependencies and build project
+      #- name: Install Dependencies
+        #run: npm install
 
-      - name: Build Project
-        run: npm run build
+      #- name: Build Project
+        #run: npm run build
 
-      # Authenticate with Google Cloud
-      - name: Authenticate with Google Cloud
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcloud-key.json
-        run: |
-          echo "${{ secrets.GOOGLE_CREDENTIALS }}" > $HOME/gcloud-key.json
-          gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
+      ## Authenticate with Google Cloud
+      #- name: Authenticate with Google Cloud
+        #env:
+          #GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcloud-key.json
+        #run: |
+          #echo "${{ secrets.GOOGLE_CREDENTIALS }}" > $HOME/gcloud-key.json
+          #gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
 
-      # Debugging: Verify authentication
-      - name: Verify Authentication
-        run: gcloud auth list
+      ## Debugging: Verify authentication
+      #- name: Verify Authentication
+        #run: gcloud auth list
 
-      # Debugging: List buckets
-      - name: List Google Cloud Storage Buckets
-        run: gcloud storage buckets list
+      ## Debugging: List buckets
+      #- name: List Google Cloud Storage Buckets
+        #run: gcloud storage buckets list
 
-      # Debugging: Check bucket permissions
-      - name: Check Bucket Access
-        run: gsutil ls gs://[BUCKET_NAME]/
+      ## Debugging: Check bucket permissions
+      #- name: Check Bucket Access
+        #run: gsutil ls gs://[BUCKET_NAME]/
 
-      # Upload files to Google Cloud Storage
-      - name: Upload Files to Google Cloud Storage
-        run: |
-          gsutil -m rsync -r .svelte-kit/output/ gs://[BUCKET_NAME]/
+      ## Upload files to Google Cloud Storage
+      #- name: Upload Files to Google Cloud Storage
+        #run: |
+          #gsutil -m rsync -r .svelte-kit/output/ gs://[BUCKET_NAME]/

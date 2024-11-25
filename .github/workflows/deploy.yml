@@ -48,9 +48,9 @@ jobs:
 
       # Debugging: Check bucket permissions
       - name: Check Bucket Access
-        run: gsutil ls gs://[BUCKET_NAME]/
+        run: gsutil ls gs://portfolio_bucket_mp
 
       # Upload files to Google Cloud Storage
       - name: Upload Files to Google Cloud Storage
         run: |
-          gsutil -m rsync -r .svelte-kit gs://portfolio_bucket_mp]/
+          gsutil -m rsync -r .svelte-kit gs://portfolio_bucket_mp

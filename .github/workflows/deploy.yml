@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Debug GOOGLE_CREDENTIALS content
-      run: |
-        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > $HOME/gcloud-key.json
-        echo "File Content Preview:"
-        head -n 5 $HOME/gcloud-key.json
+        run: |
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" > $HOME/gcloud-key.json
+          echo "File Content Preview:"
+          head -n 5 $HOME/gcloud-key.json
     
       # Checkout the code
      # - name: Checkout Code

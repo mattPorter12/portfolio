@@ -34,7 +34,8 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcloud-key.json
         run: |
           echo "${{ secrets.GCLOUD_AUTH}}"
-          echo "${{ secrets.GCLOUD_AUTH}}" > $HOME/gcloud-key.json
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\/g'
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" | sed 's/\\n/\/g' > $HOME/gcloud-key.json
           gcloud auth activate-service-account --key-file=$HOME/gcloud-key.json
 
       # Debugging: Verify authentication

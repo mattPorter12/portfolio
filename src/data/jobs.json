@@ -1,0 +1,43 @@
+[{
+    "job_name": "Full Stack Engineer",
+    "company_name": "Prescription Care Management",
+    "date_range": ["06/2021", "11/2024"],
+    "bullet_points": [
+
+        "Automated ETL Workflows for client data, saving ~2000 hours annually and reducing manual oversight by 90%",
+        "Created Python scripts to integrate data between Asana and Pipedrive, fully automating a data entry position",
+        "Led monthly meetings to identify bottlenecks and implement early error-checking and outlier detection in ETL loads, reducing load errors by 15% through cross-functional collaboration and proactive troubleshooting.",
+        "Designed and engineered a GUI that empowered the operations team to update 30 client contracts independently, saving developers 30-60 hours annually and streamlining contract management.",
+        "Developed an automated infrastructure for sending files to third-party clients, enhancing data delivery efficiency by streamlining data pulling, file creation, and distribution tasks."
+    ]
+},
+{
+    "job_name": "Research Analyst",
+    "company_name": "College of Life Sciences - Brigham Young University",
+    "date_range": ["10/2020", "12/2021"],
+    "bullet_points": [
+        "Analyzed genetic biobank using Python/R to find correlation between specific gene mutations and Diabetes",
+        "Developed Python script to standardize genetic data from 2 data sources. saving 100 hours of developer time",
+        "Accelerated research grant timeline by 3 months by teaching coworkers programming skills"
+    ]
+},
+{
+    "job_name": "Data Analyst Intern",
+    "company_name": "Community Clinic Contracting Network",
+    "date_range": ["05/2020", "10/2020"],
+    "bullet_points": [
+        "Redesigned process of data quality checks using Power-BI; saving ~500 hours of business analyst time",
+        "Accelerated the HIPAA certification 3 months ahead of schedule; saving ~10,000$ of additional expenses"
+    ]
+},
+{
+    "job_name": "Integration Specialist Intern",
+    "company_name": "Podium",
+    "date_range": ["11/2019", "01/2020"],
+    "bullet_points": [
+        "Remotely integrated 10 organizations’ databases with Podium software, automating 1000’s of review invites",
+        "Created additional training resources that streamlined the training process for future interns"
+    ]
+}
+
+]

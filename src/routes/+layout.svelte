@@ -9,6 +9,23 @@
         mobileMenu.classList.toggle('hidden');
         })
 
+        const mobileLinksSelector = document.getElementsByName('mobile-link')
+
+
+        console.log(mobileLinksSelector)
+        if (mobileLinksSelector) {
+
+            let mobileLinks = [...mobileLinksSelector]
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden')
+                })
+            })
+
+        }
+
+
+
     });
 </script>
 
@@ -26,10 +43,12 @@
         <!-- Navigation Links -->
         <nav>
             <ul class="hidden md:flex space-x-8 text-lg mr-8">
-                <li><a href="/#skills" class="hover:text-blue-400">Skills</a></li>
+                <li><a href="/" class="hover:text-blue-400">Skills</a></li>
                 <li><a href="/experience" class="hover:text-blue-400">Experience</a></li>
                 <li><a href="contact" class="hover:text-blue-400">Contact</a></li>
             </ul>
+
+
 
             <!-- Hamburger Menu (Mobile) -->
             <button class="block md:hidden focus:outline-none" id="menu-btn">
@@ -37,6 +56,12 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
+            <!-- Mobile Menu -->
+            <ul id="mobile-menu" class="hidden absolute left-0 w-full bg-sky-800 text-white text-right p-4 z-4">
+                <li name='mobile-link'><a href="/" class="hover:text-blue-400">Skills</a></li>
+                <li name='mobile-link'><a href="/experience" class="hover:text-blue-400">Experience</a></li>
+                <li name='mobile-link'><a href="contact" class="hover:text-blue-400">Contact</a></li>
+            </ul>
         </nav>
     </div>
 </header>

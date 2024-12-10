@@ -18,53 +18,59 @@ import Skills from "$lib/buttons/skills_button.svelte";
 
 <div class="body px-10 ">
 
-    <!-- Hero Section with Image, Name, and Descriptive Words -->
-     <div id='outer_hero_wrapper' class="relative justify-between">
-        <div id="hero_image" class="flex flex-row  items-center p-10 rounded-3xl " > <!--row-->
+<!-- Hero Section with Image, Name, and Descriptive Words -->
+<div id="outer_hero_wrapper" class="relative justify-between">
+    <div 
+        id="hero_image" 
+        class="flex flex-col lg:flex-row items-center p-10 rounded-3xl space-y-10 lg:space-y-0 lg:space-x-10"
+    >
+        <!-- Spacer (for alignment, optional) -->
+        <span class="hidden lg:block lg:flex-col lg:w-1/4"></span>
 
-            <span class='flex flex-col w-1/4'></span>
-            <!-- Image -->
-            <span class='flex flex-col w-1/4'>
-                <div class=" flex items-center justify-end ">
-                    <img src="/src/images/hero.jpg" alt="heroimg" 
-                        class=" object-cover rounded-3xl " />
+        <!-- Image -->
+        <span class="w-auto flex justify-center lg:justify-end flex-shrink-0">
+            <img 
+                src="/src/images/hero.jpg" 
+                alt="heroimg" 
+                class="object-cover rounded-3xl w-64 md:w-80 lg:w-[30rem] xl:w-[36rem] flex-shrink-0"
+            />
+        </span>
+
+        <!-- Text -->
+        <span class="flex flex-col text-center lg:text-left lg:pl-10">
+            <p class="text-[6rem] md:text-[8rem] lg:text-[11rem] font-bold m-0 leading-[1]">Matt</p>
+            <p class="text-[6rem] md:text-[8rem] lg:text-[11rem] font-bold m-0 leading-[1] pb-4 lg:pb-8">Porter</p>
+
+            <!-- Descriptive Words -->
+            <div class="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-0">
+                <div class="flex items-center">
+                    <p class="text-2xl md:text-4xl font-medium flex items-center">
+                        Innovator
+                        <span class="hidden lg:block w-2 h-2 bg-gray-400 rounded-full mx-4"></span>
+                    </p>
                 </div>
-            </span>
-        
-            <!-- Text -->
-            <span class='flex flex-col pl-10'>
-                <div class="text-left justify-start">
-                    <p class="text-[11rem] font-bold m-0 leading-[1]" >Matt</p>
-                    <p class="text-[11rem] font-bold m-0 leading-[1] pb-8">Porter</p>
+                <div class="flex items-center">
+                    <p class="text-2xl md:text-4xl font-medium flex items-center">
+                        Problem Solver
+                        <span class="hidden lg:block w-2 h-2 bg-gray-400 rounded-full mx-4"></span>
+                    </p>
+                </div>
+                <div class="flex items-center">
+                    <p class="text-2xl md:text-4xl font-medium">Tech Junky</p>
+                </div>
+            </div> <!--bullet point words-->
+        </span> <!--column-->
+    </div> <!--hero wrapper-->
+</div>
 
-                    <!-- Descriptive words -->
-                    <div class="flex flex-wrap   ">
-                        <div class="items-center">
-                            <p class="text-4xl font-medium flex items-center">
-                                Innovator
-                                <span class="block w-2 h-2 bg-gray-400 rounded-full mx-4"></span>
-                            </p>
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-4xl font-medium flex items-center">
-                                Problem Solver
-                                <span class="block w-2 h-2 bg-gray-400 rounded-full mx-4"></span>
-                            </p>
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-4xl font-medium">Tech Junky</p>
-                        </div>
-                    </div> <!--end descriptive words-->
-
-                    <!-- Blue Box -->
-                </div> <!--end right column-->
-            </span>
-
-        </div> <!-- end wrapper div-->
-    </div>
-                    <div class="bg-sky-800 shadow-md  rounded-xl p-4 text-white flex flex-wrap text-left text-2xl mb-32 mt-8 mx-96">
-                        <p>I’m Matt Porter, a passionate full-stack developer with a strong focus on innovation and problem-solving. With a blend of creative thinking and technical expertise, I build solutions that drive efficiency and growth. Whether I'm architecting complex systems or solving challenging problems, my goal is always to deliver impactful results. Let’s build something great together!</p>
-                    </div><!--blue box wrapper-->
+<!-- Blue Box Section -->
+<div 
+    class="bg-sky-800 shadow-md rounded-xl p-6 text-white text-justify text-lg lg:text-2xl mb-32 mt-8 mx-6 lg:mx-96"
+>
+    <p>
+        I’m Matt Porter, a passionate full-stack developer with a strong focus on innovation and problem-solving. With a blend of creative thinking and technical expertise, I build solutions that drive efficiency and growth. Whether I'm architecting complex systems or solving challenging problems, my goal is always to deliver impactful results. Let’s build something great together!
+    </p>
+</div>
 
     <div id='skills'  class="flex flex-row mt-16">
         <span class="w-1/3 "></span>

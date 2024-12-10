@@ -21,7 +21,7 @@
     $: console.log("Updated jobs:", jobs);
   </script>
   
-  <div class='flex flex-row bg-sky-800 shadow-md rounded-3xl w-full p-20'>
+  <div class='flex flex-row bg-sky-800 shadow-md rounded-3xl w-full md:p-12'>
     <div class="flex flex-col  items-center justify-center p-3 ">
         <!-- Navigation Buttons -->
         <button
@@ -32,7 +32,6 @@
         </button>
 
     </div>
-    <div class='flex flex-col items-center'>
         <div class="relative w-full max-w-4xl  overflow-hidden">
             <!-- Carousel Container -->
             <div
@@ -57,7 +56,6 @@
             <p>Loading jobs...</p>
             {/if}
             </div>
-    </div>
     </div>
 
     

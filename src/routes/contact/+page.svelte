@@ -8,10 +8,11 @@
 
 
 
-<div class="bg-gradient-to-b from-blue-200 to-sky-800 h-screen"> 
-<!--<div class='bg-img h-screen'>-->
+<!--<div class='bg-sky-200 m-4 rounded-3xl h-screen'>-->
+
+<div class='bg-img h-screen p-3'>
     <div class='flex flex-row justify-center items-center'>
-        <h1 class='text-7xl p-10 text-center text-white'>Want to get in touch?</h1>
+        <h1 class='text-7xl p-10 text-center text-sky-800'>Want to get in touch?</h1>
 
     </div>
     <div class="flex flex-row items-center justify-center">
@@ -22,7 +23,7 @@
                     <img 
                         src={'/src/images/' + icon[0] + '.png'}
                         class="w-32 h-32 object-contain" />
-                    <p class="text-3xl text-white">{icon[1]}</p>
+                    <p class=" flex text-l sm:text-3xl text-white overflow-wrap break-all">{icon[1]}</p>
                 </div>
             </a>
             {/each}

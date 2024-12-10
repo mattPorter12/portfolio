@@ -2,8 +2,9 @@
 <script>
 
     import ExperienceButton from "$lib/buttons/experience_button.svelte";
-import SkillsButton from "$lib/buttons/skills_button.svelte";
-import Skills from "$lib/buttons/skills_button.svelte";
+    import SkillsButton from "$lib/buttons/skills_button.svelte";
+    import Skills from "$lib/buttons/skills_button.svelte";
+    import heroimg from "$lib/images/hero.jpg"
 
     let skills = {
         'Languages I speak': ['Python', 'Javascript', 'SQL', 'C#', 'C++', 'Swift/SwiftUI', 'R' , 'java'],
@@ -30,7 +31,7 @@ import Skills from "$lib/buttons/skills_button.svelte";
         <!-- Image -->
         <span class="w-auto flex justify-center lg:justify-end flex-shrink-0">
             <img 
-                src="/src/images/hero.jpg" 
+                src={heroimg}
                 alt="heroimg" 
                 class="object-cover rounded-3xl w-64 md:w-80 lg:w-[30rem] xl:w-[36rem] flex-shrink-0"
             />
@@ -61,7 +62,7 @@ import Skills from "$lib/buttons/skills_button.svelte";
             </div> <!--bullet point words-->
         </span> <!--column-->
     </div> <!--hero wrapper-->
-</div>
+</div> <!-- other hero wrapper-->
 
 <!-- Blue Box Section -->
 <div 

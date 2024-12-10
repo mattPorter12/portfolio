@@ -1,6 +1,8 @@
 <script>
     import ContactButton from "$lib/buttons/contact_button.svelte";
     import SkillsButton from "$lib/buttons/skills_button.svelte";
+    import giftnerd from "$lib/images/giftnerd.png"
+    import cashcrayons from "$lib/images/ccrayons.png"
     import Carousel from "$lib/components/carousel.svelte";
     import { onMount } from "svelte";
 
@@ -40,7 +42,7 @@
         </span>
         <span class='sm:w-1/2 flex  justify-center items-center sm:justify-items-center sm: '>
             <div class="justify-items-start ">
-                <img src="/src/images/giftnerd.png" alt="giftnerd" 
+                <img src={giftnerd} alt="giftnerd" 
                     class=" object-cover rounded-3xl " />
             </div>
         </span>
@@ -51,7 +53,7 @@
 
         <span class='sm:w-1/2 flex  justify-center items-center sm:justify-items-center sm: '>
             <div class="justify-items-start ">
-                <img src="/src/images/ccrayons.png" alt="ccrayonspic" 
+                <img src={cashcrayons} alt="ccrayonspic" 
                     class=" object-cover rounded-3xl " />
             </div>
         </span>

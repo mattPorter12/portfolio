@@ -74,5 +74,5 @@ jobs:
       - name: Set Bucket Website Configuration
         run: |
           gcloud storage buckets update gs://portfolio_bucket_mp \
-            --website-main-page index.html \
-            --website-not-found-page index.html
+            --web-main-page-suffix index.html \
+            --web-error-page index.html

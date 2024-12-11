@@ -5,13 +5,12 @@
     import cashcrayons from "$lib/images/ccrayons.png"
     import Carousel from "$lib/components/carousel.svelte";
     import { onMount } from "svelte";
-    import {base} from "$app/paths"
 
 
     let currentJobIndex = 0;
     let jobs = []
     onMount(async () => {
-        const response = await fetch({base} +'/src/data/jobs.json')
+        const response = await fetch('https://storage.googleapis.com/portfolio_bucket_mp/src/data/jobs.json');
         jobs = await response.json();
         console.log(jobs)
     })

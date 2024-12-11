@@ -76,3 +76,8 @@ jobs:
           gcloud storage buckets update gs://portfolio_bucket_mp \
             --web-main-page-suffix index.html \
             --web-error-page index.html
+
+
+      # Apply public read permissions to /src/data/ directory
+      - name: Apply Permissions to /src/data/
+        run: gsutil acl ch -u AllUsers:R gs://portfolio_bucket_mp/src/data/*

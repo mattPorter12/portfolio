@@ -85,6 +85,3 @@ jobs:
       - name: List Uploaded Files
         run: gsutil ls -r gs://portfolio_bucket_mp/
 
-      # Apply permissions to data files
-      - name: Apply Permissions to /src/data/
-        run: gsutil acl ch -u AllUsers:R gs://portfolio_bucket_mp/src/data/*

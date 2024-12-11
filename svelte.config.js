@@ -8,7 +8,7 @@ export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base: '', // Leave blank for root
+      base: 'https://storage.googleapis.com/portfolio_bucket_mp', // Leave blank for root
       assets: 'https://storage.googleapis.com/portfolio_bucket_mp',
     },
   },

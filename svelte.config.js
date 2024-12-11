@@ -9,6 +9,7 @@ export default {
     adapter: adapter(),
     paths: {
       base: '', // Leave blank for root
+      assets: 'https://storage.googleapis.com/portfolio_bucket_mp',
     },
   },
 };

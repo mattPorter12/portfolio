@@ -77,7 +77,14 @@ jobs:
             --web-main-page-suffix index.html \
             --web-error-page index.html
 
+      # Upload data files
+      - name: Upload Data Files to Google Cloud Storage
+        run: gsutil -m rsync -r src/data/ gs://portfolio_bucket_mp/src/data/
 
-      # Apply public read permissions to /src/data/ directory
+      # Debug: Verify files in the bucket
+      - name: List Uploaded Files
+        run: gsutil ls -r gs://portfolio_bucket_mp/
+
+      # Apply permissions to data files
       - name: Apply Permissions to /src/data/
         run: gsutil acl ch -u AllUsers:R gs://portfolio_bucket_mp/src/data/*

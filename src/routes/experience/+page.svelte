@@ -5,7 +5,8 @@
     import cashcrayons from "$lib/images/ccrayons.png"
     import Carousel from "$lib/components/carousel.svelte";
     import { onMount } from "svelte";
-    import base from "$app/paths"
+    import {base} from "$app/paths"
+
 
     let currentJobIndex = 0;
     let jobs = []

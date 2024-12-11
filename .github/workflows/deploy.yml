@@ -54,3 +54,17 @@ jobs:
       - name: Upload Files to Google Cloud Storage
         run: |
           gsutil -m rsync -r build gs://portfolio_bucket_mp
+
+
+      # Set CORS configuration for the bucket
+      - name: Set CORS Configuration
+        run: |
+          echo '[
+            {
+              "origin": ["*"],
+              "method": ["GET", "HEAD", "OPTIONS"],
+              "responseHeader": ["Content-Type"],
+              "maxAgeSeconds": 3600
+            }
+          ]' > cors.json
+          gsutil cors set cors.json gs://portfolio_bucket_mp

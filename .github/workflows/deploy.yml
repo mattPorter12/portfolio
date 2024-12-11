@@ -68,3 +68,11 @@ jobs:
             }
           ]' > cors.json
           gsutil cors set cors.json gs://portfolio_bucket_mp
+
+
+      # Set the bucket's website configuration
+      - name: Set Bucket Website Configuration
+        run: |
+          gcloud storage buckets update gs://portfolio_bucket_mp \
+            --website-main-page index.html \
+            --website-not-found-page index.html
